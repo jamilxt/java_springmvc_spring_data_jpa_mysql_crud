@@ -16,11 +16,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final PasswordEncoder passwordEncoder;
 
     private final UserDetailsService userDetailsService;
+    private final CustomAuthSuccessHandler customAuthSuccessHandler;
 
     @Autowired
-    public WebSecurityConfiguration(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
+    public WebSecurityConfiguration(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, CustomAuthSuccessHandler customAuthSuccessHandler) {
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
+        this.customAuthSuccessHandler = customAuthSuccessHandler;
     }
 
     @Override
@@ -57,7 +59,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll() // We re permitting all for login page
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/") // If the login is successful, user will be redirected to this URL.
+                .successHandler(customAuthSuccessHandler)
+//                .defaultSuccessUrl("/") // If the login is successful, user will be redirected to this URL.
                 .failureUrl("/login?error=true") // If the user fails to login, application will redirect the user to this endpoint
                 .and()
                 .logout()

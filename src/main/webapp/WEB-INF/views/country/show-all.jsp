@@ -25,7 +25,7 @@
         <tbody>
         <c:forEach items="${countries }" var="country">
             <tr>
-                <th>${ country.id }</th>
+                <th>${ country.countryId }</th>
                 <th>${ country.countryCode }</th>
                 <th>${ country.countryName }</th>
             </tr>

@@ -1,5 +1,6 @@
 package com.spring5.practice;
 
+import com.spring5.practice.config.security.CustomAuthSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,5 +19,10 @@ public class RootConfig {
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CustomAuthSuccessHandler authSuccessHandler() {
+        return new CustomAuthSuccessHandler();
     }
 }

@@ -9,29 +9,29 @@ public class Country implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    @Column(name = "id", nullable = false)
+    private long countryId;
     @Column(name = "country_code", unique = true, nullable = false, updatable = false)
     private String countryCode;
     @Column(name = "country_name", nullable = false)
     private String countryName;
 
     public Country() {
-        super();
     }
 
-    public Country(long id, String countryCode, String countryName) {
+    public Country(long countryId, String countryCode, String countryName) {
         super();
-        this.id = id;
+        this.countryId = countryId;
         this.countryCode = countryCode;
         this.countryName = countryName;
     }
 
-    public long getId() {
-        return id;
+    public long getCountryId() {
+        return countryId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCountryId(long countryId) {
+        this.countryId = countryId;
     }
 
     public String getCountryCode() {
@@ -52,6 +52,10 @@ public class Country implements Serializable {
 
     @Override
     public String toString() {
-        return "Country [id=" + id + ", countryCode=" + countryCode + ", countryName=" + countryName + "]";
+        return "Country{" +
+                "countryId=" + countryId +
+                ", countryCode='" + countryCode + '\'' +
+                ", countryName='" + countryName + '\'' +
+                '}';
     }
 }
