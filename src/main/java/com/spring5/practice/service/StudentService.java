@@ -41,7 +41,6 @@
 //
 //	@Transactional
 //	public void save(StudentDto studentDto) {
-//		// TODO Auto-generated method stub
 //		var session = hibernateConfig.getSession();
 //		Transaction tx = session.getTransaction();
 //		if (!tx.isActive())

@@ -29,9 +29,9 @@ public class HibernateConfig {
 
     @Bean(value = "session")
     public Session getSession() {
-        try{
+        try {
             session = createAndGetLocalSessionFactoryBean().getCurrentSession();
-        } catch(HibernateException e) {
+        } catch (HibernateException e) {
             e.printStackTrace();
             System.out.println("Opening new session...");
             session = createAndGetLocalSessionFactoryBean().openSession();
@@ -42,7 +42,7 @@ public class HibernateConfig {
     public CriteriaBuilder getCriteriaBuilder() {
         Session session = getSession();
         var tx = session.getTransaction();
-        if(!tx.isActive()) {
+        if (!tx.isActive()) {
             tx = session.beginTransaction();
         }
         return session.getCriteriaBuilder();

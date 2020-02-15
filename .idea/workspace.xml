@@ -6,11 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f095a3-1562-4caa-b6ab-f51b8129c27f" name="Default Changelist" comment="" />
+    <list default="true" id="e5f095a3-1562-4caa-b6ab-f51b8129c27f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring5/practice/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spring5/practice/RootConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring5/practice/config/persistence/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spring5/practice/config/persistence/HibernateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring5/practice/exceptions/ResourceAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spring5/practice/exceptions/ResourceAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring5/practice/exceptions/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spring5/practice/exceptions/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring5/practice/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spring5/practice/service/StudentService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -27,6 +38,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1Xpfz0HZHX11wMTvMFD4mAUIpOR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -34,6 +46,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
@@ -145,7 +158,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581748214792</updated>
-      <workItem from="1581748218448" duration="3758000" />
+      <workItem from="1581748218448" duration="5784000" />
     </task>
     <servers />
   </component>
@@ -205,9 +218,9 @@
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
     <state width="1252" height="408" key="GridCell.Tab.2.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1581752704325" />
-    <state x="632" y="1020" width="710" height="864" key="find.popup" timestamp="1581751197159">
+    <state x="632" y="1020" width="710" height="864" key="find.popup" timestamp="1581754865016">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state x="632" y="1020" width="710" height="864" key="find.popup/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1581751197159" />
+    <state x="632" y="1020" width="710" height="864" key="find.popup/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1581754865016" />
   </component>
 </project>
