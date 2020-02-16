@@ -16,7 +16,7 @@ public class Student implements Serializable {
     private String name;
     @Column
     private int age;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Course.class)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE, targetEntity = Course.class)
     @JoinTable(name = "student_courses", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
     private Set<Course> courses;
     @Column(name = "gender")

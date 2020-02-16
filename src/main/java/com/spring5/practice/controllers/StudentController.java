@@ -33,9 +33,9 @@ public class StudentController {
 		model.addAttribute("message", "Showing all users");
 		model.addAttribute("pageTitle", "Student List");
 		model.addAttribute("students", studentService.showAll());
-		studentService.showAll().forEach(s -> {
-			System.out.println(s.toString());
-		});
+//		studentService.showAll().forEach(s -> {
+//			System.out.println(s.toString());
+//		});
 		return "student/show-all";
 	}
 
@@ -57,9 +57,9 @@ public class StudentController {
 		var studentDto = new StudentDto();
 		BeanUtils.copyProperties(student, studentDto);
 		studentService.save(studentDto);
-		studentService.showAll().forEach(s -> {
-			System.out.println(s.toString());
-		});
+//		studentService.showAll().forEach(s -> {
+//			System.out.println(s.toString());
+//		});
 		return "redirect:/student/add";
 	}
 

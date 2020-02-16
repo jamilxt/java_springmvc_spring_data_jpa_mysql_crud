@@ -1,13 +1,18 @@
 package com.spring5.practice.service;
 
 import com.spring5.practice.dtos.StudentDto;
+import com.spring5.practice.model.Course;
 import com.spring5.practice.model.Student;
 import com.spring5.practice.repositories.StudentRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class StudentService {
@@ -33,6 +38,7 @@ public class StudentService {
 //		cq.select(root);
 //		return hibernateConfig.getSession().getEntityManagerFactory().createEntityManager().createQuery(cq)
 //				.getResultList();
+//        return studentRepository.findAllWithCourses();
         return studentRepository.findAll();
     }
 
@@ -59,9 +65,18 @@ public class StudentService {
 
 //		studentRepository.save(student);
 
-//        var student = new Student();
-//        BeanUtils.copyProperties(studentDto, student);
-//        studentRepository.save(studentDto);
+
+        var country = countryService.getCountryByCode(studentDto.getCountryCode());
+        var studentEntity = new Student();
+        BeanUtils.copyProperties(studentDto, studentEntity);
+        studentEntity.setCountry(country);
+        Set<Course> courses = new HashSet<Course>();
+        for (var courseCode : studentDto.getCourseCodes()) {
+            var course = courseService.getCourseByCourseCode(courseCode);
+            courses.add(course);
+        }
+        studentEntity.setCourses(courses);
+        studentRepository.save(studentEntity);
     }
 
 }

@@ -22,18 +22,23 @@
             <th>Gender</th>
             <th>Age</th>
             <th>Email</th>
+            <th>Courses</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${ students }" var="student">
-            <tr>
-                <th>${ student.id }</th>
-                <th>${ student.name }</th>
-                <th>${ student.gender }</th>
-                <th>${ student.age }</th>
-                <th>${ student.email }</th>
-            </tr>
-        </c:forEach>
+        <tr>
+            <th>${ student.id }</th>
+            <th>${ student.name }</th>
+            <th>${ student.gender }</th>
+            <th>${ student.age }</th>
+            <th>${ student.email }</th>
+            <th>
+                <c:forEach items="${student.courses}" var="course">
+                    <div>${course.courseName}</div>
+                </c:forEach>
+            </th>
+            </c:forEach>
         </tbody>
     </table>
 </div>
