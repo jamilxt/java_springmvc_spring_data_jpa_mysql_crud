@@ -1,6 +1,7 @@
 package com.spring5.practice.service;
 
 import com.spring5.practice.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 public class UserService implements UserDetailsService {
 
+    @Autowired
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -29,5 +31,9 @@ public class UserService implements UserDetailsService {
         authorities.add((GrantedAuthority) () -> userFromDb.getRole().name());
 
         return new User(userFromDb.getUsername(), userFromDb.getPassword(), authorities); // This User class is from  Spring Security. Since we did not implement UserDetails interface from SpringSecurity, therefore we are creating an instance of Spring Security provided User class.
+    }
+
+    public List<com.spring5.practice.model.User> showAll() {
+        return userRepository.findAll();
     }
 }

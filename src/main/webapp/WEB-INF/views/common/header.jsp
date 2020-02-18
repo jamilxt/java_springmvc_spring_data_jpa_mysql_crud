@@ -25,7 +25,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown"><a
                         class="nav-link dropdown-toggle" href="#"
-                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                        role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Countries</a>
                     <div class="dropdown-menu"
                          aria-labelledby="navbarDropdownMenuLink">
@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item dropdown"><a
                         class="nav-link dropdown-toggle" href="#"
-                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                        role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Students</a>
                     <div class="dropdown-menu"
                          aria-labelledby="navbarDropdownMenuLink">
@@ -51,7 +51,7 @@
                 </li>
                 <li class="nav-item dropdown"><a
                         class="nav-link dropdown-toggle" href="#"
-                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                        role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Courses</a>
                     <div class="dropdown-menu"
                          aria-labelledby="navbarDropdownMenuLink">
@@ -59,6 +59,19 @@
                            href="${pageContext.request.contextPath }/course/add">Add</a> <a
                             class="dropdown-item"
                             href="${pageContext.request.contextPath }/course/show-all">Show
+                        All</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"><a
+                        class="nav-link dropdown-toggle" href="#"
+                        role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Users</a>
+                    <div class="dropdown-menu"
+                         aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item"
+                           href="${pageContext.request.contextPath }/user/add">Add</a> <a
+                            class="dropdown-item"
+                            href="${pageContext.request.contextPath }/user/show-all">Show
                         All</a>
                     </div>
                 </li>
