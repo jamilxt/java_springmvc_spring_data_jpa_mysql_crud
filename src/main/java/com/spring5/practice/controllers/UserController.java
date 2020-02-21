@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 
 @Controller
@@ -28,12 +29,17 @@ public class UserController {
         roles.put(Role.ROLE_ADMIN, "ADMIN");
         roles.put(Role.ROLE_USER, "USER");
         model.addAttribute("roles", roles);
+        var genders = new HashMap<String, String>();
+        genders.put("M", "Male");
+        genders.put("F", "Female");
+        model.addAttribute("genders", genders);
         return "user/add";
 
     }
 
     @PostMapping("/user/add")
-    public String addUser(Model model, @ModelAttribute(name = "user") User user) {
+    public String addUser(Model model, @ModelAttribute(name = "user") User user, @RequestParam("dob_f") String dob_f) {
+        user.setDob(LocalDate.parse(dob_f));
         userService.addUser(user);
         model.addAttribute("message", "User added successfully");
         return "redirect:/user/show-all";

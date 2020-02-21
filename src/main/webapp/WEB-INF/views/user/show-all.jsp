@@ -34,6 +34,7 @@
                         <%--                       class="btn btn-success">Change Password</a> <br><br>--%>
                         <%--                    <a href="edit?userId=${ user.id }"--%>
                         <%--                       class="btn btn-warning">Change Role</a><br><br>--%>
+
                     <a href="delete?userId=${ user.id }"
                        class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
                 </th>

@@ -1,9 +1,11 @@
 package com.spring5.practice.model;
 
 import com.spring5.practice.enums.Role;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tbl_user")
@@ -25,6 +27,8 @@ public class User implements Serializable {
     private String email;
     @Column(name = "gender")
     private String gender;
+    @Column(name = "dob")
+    private LocalDate dob = LocalDate.now();
     @Column(name = "is_active")
     private Boolean active = true;
 
@@ -82,6 +86,14 @@ public class User implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
     }
 
     public Boolean getActive() {

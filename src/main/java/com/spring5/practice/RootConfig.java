@@ -17,7 +17,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *   6. image upload, user details
  *   7. smtp setup
  *   8. change password, forgot password
- *   9.
+ *
+ *
+ *
+ *
+ *
+ *
+ * question:
+ * 1) adding date to db
+ * 2) redirecting to index if user is already logged in
  * */
 
 @ComponentScan(basePackages = {

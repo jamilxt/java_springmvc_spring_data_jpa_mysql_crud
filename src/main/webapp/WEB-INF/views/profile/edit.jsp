@@ -11,19 +11,20 @@
 
     <h3 class="mt-3 mb-3">${ pageTitle }</h3>
 
-    <form:form action="${pageContext.request.contextPath }/change_password" method="POST">
-        <%--        <div class="form-group">--%>
-        <%--            <label>Old Password</label>--%>
-        <%--            <form:input path="password" class="form-control" type="password"></form:input>--%>
-        <%--        </div>--%>
-        <%--        <div class="form-group">--%>
-        <%--            <label>New Password</label>--%>
-        <%--            <form:input path="new_password" class="form-control" type="password"></form:input>--%>
-        <%--        </div>--%>
-        <%--        <div class="form-group">--%>
-        <%--            <label>New Password</label>--%>
-        <%--            <form:input path="retype_new_password" class="form-control" type="password"></form:input>--%>
-        <%--        </div>--%>
+    <h3 class="mt-3 mb-3">Password</h3>
+    <form:form action="${pageContext.request.contextPath }/change_password" modelAttribute="user">
+        <div class="form-group">
+            <label>Old Password</label>
+            <form:input path="password" class="form-control" type="password"></form:input>
+        </div>
+        <div class="form-group">
+            <label>New Password</label>
+            <form:input path="new_password" class="form-control" type="password"></form:input>
+        </div>
+        <div class="form-group">
+            <label>Confirm New Password</label>
+            <form:input path="confirm_new_password" class="form-control" type="password"></form:input>
+        </div>
 
         <input type="submit" name="submit" value="Change Password"
                class="btn btn-primary btn-lg btn-block">
