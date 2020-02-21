@@ -1,5 +1,6 @@
 package com.spring5.practice.service;
 
+import com.spring5.practice.exceptions.ResourceAlreadyExistsException;
 import com.spring5.practice.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -7,6 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -17,9 +19,11 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -35,6 +39,20 @@ public class UserService implements UserDetailsService {
     }
 
     public List<com.spring5.practice.model.User> showAll() {
-        return userRepository.findAll();
+        return userRepository.findAllByActiveIsTrue();
     }
+
+    public void addUser(com.spring5.practice.model.User user) {
+        if (userRepository.findByUsername(user.getUsername()).isEmpty()) {
+            user.setPassword(passwordEncoder.encode("secret"));
+            userRepository.save(user);
+        } else {
+            throw new ResourceAlreadyExistsException("Username is unavailable");
+        }
+    }
+
+    public void deleteUser(Long userId) {
+        userRepository.deleteById(userId); // will be converted to soft delete
+    }
+
 }

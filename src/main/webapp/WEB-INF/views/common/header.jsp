@@ -62,19 +62,21 @@
                         All</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown"><a
-                        class="nav-link dropdown-toggle" href="#"
-                        role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Users</a>
-                    <div class="dropdown-menu"
-                         aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item"
-                           href="${pageContext.request.contextPath }/user/add">Add</a> <a
-                            class="dropdown-item"
-                            href="${pageContext.request.contextPath }/user/show-all">Show
-                        All</a>
-                    </div>
-                </li>
+                <sec:authorize access="hasRole('ADMIN')">
+                    <li class="nav-item dropdown"><a
+                            class="nav-link dropdown-toggle" href="#"
+                            role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Users</a>
+                        <div class="dropdown-menu"
+                             aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath }/user/add">Add</a> <a
+                                class="dropdown-item"
+                                href="${pageContext.request.contextPath }/user/show-all">Show
+                            All</a>
+                        </div>
+                    </li>
+                </sec:authorize>
             </ul>
 
             <form class="form-inline my-2 my-lg-0" style="display: none">
@@ -92,6 +94,8 @@
                     <sec:authorize access="hasRole('USER')">(USER)</sec:authorize>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item"
+                       href="${pageContext.request.contextPath}/edit_profile">Edit Profile</a>
                     <a class="dropdown-item"
                        href="${pageContext.request.contextPath}/logout">Logout</a>
                 </div>

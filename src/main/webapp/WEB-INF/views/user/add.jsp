@@ -14,27 +14,52 @@
            class="btn btn-primary float-right">User List</a>
     </h3>
 
+
     <form:form action="${pageContext.request.contextPath }/user/add"
                modelAttribute="user">
         <div class="form-group">
-            <label>Name</label>
-            <form:input path="username" class="form-control"></form:input>
+            <label>Username</label>
+            <form:input path="username" class="form-control" required="required"></form:input>
         </div>
         <div class="form-group">
             <label>Password</label>
-            <form:input path="password" class="form-control" type="password"></form:input>
+            <form:input path="password" class="form-control" type="password" id="password"
+                        required="required"></form:input>
         </div>
 
-<%--        <div class="form-check">--%>
-<%--            <label>Role</label><br>--%>
-<%--            <form:radiobuttons path="role" items="${roles}"></form:radiobuttons>--%>
-<%--        </div>--%>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <form:input path="" class="form-control" type="password" id="confirm_password"
+                        required="required"></form:input>
+        </div>
+
+        <div class="form-check">
+            <label>Role</label><br>
+            <form:radiobuttons class="radio-inline" path="role" items="${ roles }"
+                               required="required"></form:radiobuttons>
+        </div>
 
         <input type="submit" name="submit" value="Add"
                class="btn btn-primary btn-lg btn-block">
     </form:form>
 
 </div>
+
+<script>
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        if (password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Password doesn't match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
 
 
 <!-- FOOTER -->

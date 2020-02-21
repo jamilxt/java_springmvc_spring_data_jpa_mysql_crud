@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
+
 // For showing index.jsp instead of showing the "not found page" error
 @Controller
 public class RootController {
@@ -57,4 +59,11 @@ public class RootController {
             userRepository.save(user);
         }
     }
+
+    @GetMapping("/edit_profile")
+    public String editProfile(Model model) {
+        model.addAttribute("pageTitle", "Edit Profile");
+        return "profile/edit";
+    }
+
 }

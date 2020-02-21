@@ -19,6 +19,14 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
+    @Column(name = "fullname")
+    private String fullName;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "gender")
+    private String gender;
+    @Column(name = "is_active")
+    private Boolean active = true;
 
     public long getId() {
         return id;
@@ -50,5 +58,37 @@ public class User implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

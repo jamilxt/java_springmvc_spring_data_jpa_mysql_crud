@@ -29,7 +29,7 @@
                 <th>${ course.courseName }</th>
                 <th><a href="edit?courseId=${ course.courseId }"
                        class="btn btn-success">Edit</a> <a href="delete?courseId=${ course.courseId }"
-                                                           class="btn btn-danger ml-3">Delete</a></th>
+                                                           class="btn btn-danger ml-3" onclick="return confirm('Are you sure?');">Delete</a></th>
             </tr>
         </c:forEach>
         </tbody>

@@ -7,18 +7,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /*
-*
-* TODO:
-*   1. soft delete
-*   2. multiple authorities/roles for a user
-*   3. profiling
-*   4. deployment to heroku
-*   5. add user, change password, change role
-*   6. image upload, user details
-*   7. smtp setup
-*   8. change password, forgot password
-*   9.
-* */
+ *
+ * TODO:
+ *   1. soft delete (c)
+ *   2. multiple authorities/roles for a user
+ *   3. profiling
+ *   4. deployment to heroku
+ *   5. add user, change password, change role
+ *   6. image upload, user details
+ *   7. smtp setup
+ *   8. change password, forgot password
+ *   9.
+ * */
 
 @ComponentScan(basePackages = {
         "com.spring5.practice.service",

@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- HEADER -->
 <jsp:include page="../common/header.jsp"/>
@@ -11,7 +12,7 @@
 
     <h3 class="mt-3 mb-3">${ pageTitle }</h3>
     <c:if test="${error == 'true'}">
-        <div class="alert alert-danger" role="alert">Wrong username or
+        <div class="alert alert-danger" role="alert" id="success-alert">Wrong username or
             password
         </div>
     </c:if>
