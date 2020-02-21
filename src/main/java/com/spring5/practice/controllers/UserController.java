@@ -1,5 +1,6 @@
 package com.spring5.practice.controllers;
 
+import com.spring5.practice.model.User;
 import com.spring5.practice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +13,16 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    @GetMapping("/course/add")
-//    public String getAddCoursePage(Model model) {
-//        model.addAttribute("pageTitle", "Add Course");
-//        model.addAttribute("course", new Course());
-//        model.addAttribute("message", "Add a new Course");
-//
-//        return "course/add";
-//
-//    }
-//
+    @GetMapping("/user/add")
+    public String getAddCoursePage(Model model) {
+        model.addAttribute("pageTitle", "Add User");
+        model.addAttribute("user", new User());
+        model.addAttribute("message", "Add a new User");
+
+        return "user/add";
+
+    }
+
 //    @PostMapping("/course/add")
 //    public String addCourse(Model model, @ModelAttribute(name = "course") Course course) {
 //        courseService.addCourse(course);

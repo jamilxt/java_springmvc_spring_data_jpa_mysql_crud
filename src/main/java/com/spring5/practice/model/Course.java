@@ -15,6 +15,8 @@ public class Course implements Serializable {
     private String courseName;
     @Column(name = "course_code")
     private String courseCode;
+    @Column(name = "is_active")
+    private Boolean active = true;
 
     public Course() {
         super();
@@ -48,6 +50,14 @@ public class Course implements Serializable {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     @Override

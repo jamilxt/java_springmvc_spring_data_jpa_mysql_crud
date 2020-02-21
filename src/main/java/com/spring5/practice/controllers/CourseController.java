@@ -37,32 +37,11 @@ public class CourseController {
 
     }
 
-    @GetMapping("/course/show-all")
-    public String showAllCourse(Model model) {
-        model.addAttribute("pageTitle", "Course List");
-        model.addAttribute("courses", courseService.getAllCourses());
-        model.addAttribute("message", "Showing all course...");
-
-        return "/course/show-all";
-    }
-
-    @GetMapping("/course/courses")
-    public String coursesPage(Model model) {
-
-        model.addAttribute("course_list", courseService.getAllCourses());
-        model.addAttribute("course", new Course());
-        model.addAttribute("message", "Showing all course...");
-
-        return "course/courses";
-
-    }
-
     @GetMapping("/course/edit")
     public String editCourseByCourseCode(Model model, @RequestParam("courseId") long courseId) {
 
         model.addAttribute("pageTitle", "Edit Course");
         model.addAttribute("course", courseService.getCourseByCourseId(courseId));
-        // model.addAttribute("course", new Course());
 
         return "course/edit";
     }
@@ -76,12 +55,21 @@ public class CourseController {
     }
 
     @GetMapping("/course/delete")
-    public String deleteCourseByCourseCode(Model model, @RequestParam("courseCode") String courseCode) {
+    public String deleteCourseByCourseID(Model model, @RequestParam("courseId") long courseId) {
 
-        // courseService.deleteCourseByCourseCode(courseCode);
+        courseService.deleteCourse(courseId);
         model.addAttribute("message", "Course deleted successfully");
 
-        return "redirect:/course/courses";
+        return "redirect:/course/show-all";
+    }
+
+    @GetMapping("/course/show-all")
+    public String showAllCourse(Model model) {
+        model.addAttribute("pageTitle", "Course List");
+        model.addAttribute("courses", courseService.getAllCourses());
+        model.addAttribute("message", "Showing all course...");
+
+        return "/course/show-all";
     }
 
     @PostMapping("/course/search")

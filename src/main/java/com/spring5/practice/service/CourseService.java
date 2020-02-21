@@ -46,6 +46,12 @@ public class CourseService {
     }
 
     public List<Course> getAllCourses() {
-        return courseRepository.findAll();
+        return courseRepository.findAllByActiveIsTrue();
+    }
+
+    public void deleteCourse(Long courseId) {
+        var course = courseRepository.findByCourseId(courseId);
+        course.setActive(false);
+        courseRepository.save(course);
     }
 }

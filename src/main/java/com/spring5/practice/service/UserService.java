@@ -26,7 +26,8 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         var userFromDb = userRepository.findByUsername(s)
                 .orElseThrow(() -> new UsernameNotFoundException("No user found with this email address."));
-        List<GrantedAuthority> authorities = new java.util.ArrayList<>(Collections.emptyList());
+
+        List<GrantedAuthority> authorities = new java.util.ArrayList<>(Collections.emptyList()); // jamilxt
 
         authorities.add((GrantedAuthority) () -> userFromDb.getRole().name());
 

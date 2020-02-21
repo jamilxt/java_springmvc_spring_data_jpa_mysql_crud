@@ -10,8 +10,8 @@
 <div class="container">
 
     <h3 class="mt-3 mb-3">${ pageTitle }
-<%--        <a href="${pageContext.request.contextPath }/user/add"--%>
-<%--           class="btn btn-primary float-right">Add User</a>--%>
+        <a href="${pageContext.request.contextPath }/user/add"
+           class="btn btn-primary float-right">Add User</a>
     </h3>
 
     <table class="table table-bordered">
@@ -20,7 +20,7 @@
             <th>ID</th>
             <th>Username</th>
             <th>Role</th>
-<%--            <th>Action</th>--%>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -29,13 +29,13 @@
                 <th>${ user.id }</th>
                 <th>${ user.username }</th>
                 <th>${ user.role }</th>
-<%--                <th><a href="edit?userId=${ user.id }"--%>
-<%--                       class="btn btn-success">Change Password</a> <br><br>--%>
-<%--                    <a href="edit?userId=${ user.id }"--%>
-<%--                       class="btn btn-warning">Change Role</a><br><br>--%>
-<%--                    <a href="edit?userId=${ user.id }"--%>
-<%--                       class="btn btn-danger">Delete</a>--%>
-<%--                </th>--%>
+                <th><a href="edit?userId=${ user.id }"
+                       class="btn btn-success">Change Password</a> <br><br>
+                    <a href="edit?userId=${ user.id }"
+                       class="btn btn-warning">Change Role</a><br><br>
+                    <a href="edit?userId=${ user.id }"
+                       class="btn btn-danger">Delete</a>
+                </th>
             </tr>
         </c:forEach>
         </tbody>
