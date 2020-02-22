@@ -92,10 +92,11 @@
                     <sec:authentication property="principal.username"/>
                     <sec:authorize access="hasRole('ADMIN')">(ADMIN)</sec:authorize>
                     <sec:authorize access="hasRole('USER')">(USER)</sec:authorize>
+                    <sec:authorize access="hasRole('PREMIUM_USER')">(PREMIUM_USER)</sec:authorize>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item"
-                       href="${pageContext.request.contextPath}/edit_profile">Edit Profile</a>
+                        <%--                    <a class="dropdown-item"--%>
+                        <%--                       href="${pageContext.request.contextPath}/edit_profile">Edit Profile</a>--%>
                     <a class="dropdown-item"
                        href="${pageContext.request.contextPath}/logout">Logout</a>
                 </div>

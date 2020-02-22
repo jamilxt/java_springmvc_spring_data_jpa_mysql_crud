@@ -1,45 +1,19 @@
-package com.spring5.practice.model;
+package com.spring5.practice.request;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
-@Entity
-@Table(name = "tbl_user")
 public class User implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "user_uuid")
-    private long id;
-    @Column(name = "username")
     private String username;
-    @Column(name = "password", length = 512)
     private String password;
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, targetEntity = Authority.class)
-    @JoinTable(name = "user_authority",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_uuid")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_uuid")}
-    )
-    private Set<Authority> authorities;
-    @Column(name = "fullname")
+    private List<String> authorityNames;
     private String fullName;
-    @Column(name = "email")
     private String email;
-    @Column(name = "gender")
     private String gender;
-    @Column(name = "dob")
     private LocalDate dob;
-    @Column(name = "is_active")
     private Boolean active = true;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -57,12 +31,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Set<Authority> getAuthorities() {
-        return authorities;
+    public List<String> getAuthorityNames() {
+        return authorityNames;
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
+    public void setAuthorityNames(List<String> authorityNames) {
+        this.authorityNames = authorityNames;
     }
 
     public String getFullName() {
@@ -103,5 +77,19 @@ public class User implements Serializable {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", authorityNames=" + authorityNames +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dob=" + dob +
+                ", active=" + active +
+                '}';
     }
 }

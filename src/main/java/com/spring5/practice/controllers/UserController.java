@@ -1,8 +1,10 @@
 package com.spring5.practice.controllers;
 
-import com.spring5.practice.enums.Role;
-import com.spring5.practice.model.User;
+import com.spring5.practice.dtos.UserDto;
+import com.spring5.practice.request.User;
+import com.spring5.practice.service.AuthorityService;
 import com.spring5.practice.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,28 +21,32 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    AuthorityService authorityService;
 
     @GetMapping("/user/add")
     public String getAddUser(Model model) {
         model.addAttribute("pageTitle", "Add User");
         model.addAttribute("user", new User());
         model.addAttribute("message", "Add a new User");
-        var roles = new HashMap<Role, String>();
-        roles.put(Role.ROLE_ADMIN, "ADMIN");
-        roles.put(Role.ROLE_USER, "USER");
-        model.addAttribute("roles", roles);
         var genders = new HashMap<String, String>();
         genders.put("M", "Male");
         genders.put("F", "Female");
         model.addAttribute("genders", genders);
+        System.out.println(authorityService.listAllAuthorities().size());
+        model.addAttribute("authorities", authorityService.listAllAuthorities());
         return "user/add";
 
     }
 
     @PostMapping("/user/add")
-    public String addUser(Model model, @ModelAttribute(name = "user") User user, @RequestParam("dob_f") String dob_f) {
-        user.setDob(LocalDate.parse(dob_f));
-        userService.addUser(user);
+    public String addUser(Model model, @ModelAttribute("user") User user, @RequestParam("dob_f") String dob_f) {
+
+        var userDto = new UserDto();
+        userDto.setDob(LocalDate.parse(dob_f));
+        BeanUtils.copyProperties(user, userDto);
+        userService.addUser(userDto);
+
         model.addAttribute("message", "User added successfully");
         return "redirect:/user/show-all";
 

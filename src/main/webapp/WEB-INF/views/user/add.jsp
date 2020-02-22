@@ -32,13 +32,15 @@
                         required="required"></form:input>
         </div>
 
-        <div class="form-check">
-            <label>Role</label><br>
-            <form:radiobuttons class="radio-inline" path="role" items="${ roles }"
-                               required="required"></form:radiobuttons>
+        <div class="form-group">
+            <label>Role</label>
+            <form:select class="form-control" multiple="true" path="authorityNames">
+                <form:options items="${authorities}" itemLabel="authority"
+                              itemValue="authority"></form:options>
+            </form:select>
         </div>
 
-        <h3 class="mt-3 mb-3">Personal Information</h3>
+        <h5 class="mt-3 mb-3">Personal Information</h5>
         <div class="form-group">
             <label>Full Name</label>
             <form:input path="fullName" class="form-control" required="required"></form:input>

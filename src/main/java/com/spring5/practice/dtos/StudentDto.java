@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class StudentDto implements Serializable {
-    String gender;
     private String name;
     private int age;
     private String email;
     private String countryCode;
     private List<String> courseCodes;
+    private String gender;
 
     public String getName() {
         return name;

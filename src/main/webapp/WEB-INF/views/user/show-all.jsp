@@ -28,7 +28,11 @@
             <tr>
                 <th>${ user.id } </th>
                 <th>${ user.username }</th>
-                <th>${ user.role }</th>
+                <th>
+                    <c:forEach items="${user.authorities}" var="authority">
+                        <div>${authority.authority}</div>
+                    </c:forEach>
+                </th>
                 <th>
                         <%--                    <a href="edit?userId=${ user.id }"--%>
                         <%--                       class="btn btn-success">Change Password</a> <br><br>--%>

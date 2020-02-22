@@ -44,6 +44,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // Only users with allowed roles will be able to access individual endpoints.
                 .and()
                 .authorizeRequests()
+                // mainul35
+                // after adding multiple roles - these are not working properly
                 .antMatchers("/course/add").hasRole("ADMIN")
                 .antMatchers("/course/show-all").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/course/edit").hasAnyRole("USER")

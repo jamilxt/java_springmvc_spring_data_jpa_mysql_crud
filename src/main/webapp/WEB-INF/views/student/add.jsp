@@ -44,7 +44,7 @@
         </div>
 
         <div class="form-group">
-            <label>Select a country</label>
+            <label>Select a course</label>
             <form:select class="form-control" multiple="true" path="courseCodes">
                 <form:options items="${courses}" itemLabel="courseName"
                               itemValue="courseCode"></form:options>

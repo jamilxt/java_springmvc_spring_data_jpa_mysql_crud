@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,18 +27,22 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    @Transactional
+
     public void save(StudentDto studentDto) {
+
         var country = countryService.getCountryByCode(studentDto.getCountryCode());
+
         var studentEntity = new Student();
         BeanUtils.copyProperties(studentDto, studentEntity);
         studentEntity.setCountry(country);
+
         Set<Course> courses = new HashSet<Course>();
         for (var courseCode : studentDto.getCourseCodes()) {
             var course = courseService.getCourseByCourseCode(courseCode);
             courses.add(course);
         }
         studentEntity.setCourses(courses);
+
         studentRepository.save(studentEntity);
     }
 }
