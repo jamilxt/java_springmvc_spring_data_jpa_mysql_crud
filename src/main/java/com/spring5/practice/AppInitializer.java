@@ -10,19 +10,23 @@ import javax.servlet.ServletRegistration;
 
 public class AppInitializer implements WebApplicationInitializer {
 
-    public void onStartup(ServletContext servletCxt) {
+    public void onStartup(ServletContext servletContext) {
 
         // Load Spring web application configuration
-        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(RootConfig.class);
-        rootContext.refresh();
+        AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
+        ac.register(RootConfig.class);
 
-        servletCxt.addListener(new ContextLoaderListener(rootContext));
+        // activate dev/prod profile
+        ac.getEnvironment().setActiveProfiles("prod");
+
+        ac.refresh();
+
+        servletContext.addListener(new ContextLoaderListener(ac));
 
         // Create and register the DispatcherServlet
         AnnotationConfigWebApplicationContext servletRegisterer = new AnnotationConfigWebApplicationContext();
         servletRegisterer.register(ServletConfig.class);
-        ServletRegistration.Dynamic registration = servletCxt.addServlet("servlet",
+        ServletRegistration.Dynamic registration = servletContext.addServlet("servlet",
                 new DispatcherServlet(servletRegisterer));
         registration.setLoadOnStartup(1);
         registration.addMapping("/");

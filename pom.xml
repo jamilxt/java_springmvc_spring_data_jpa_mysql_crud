@@ -126,5 +126,13 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>5.0.7.RELEASE</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.10</version>
+        </dependency>
+
     </dependencies>
 </project>

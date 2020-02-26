@@ -10,8 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *
  * TODO:
  *   1. soft delete (c)
- *   2. multiple authorities/roles for a user
- *   3. profiling
+ *   2. multiple authorities/roles for a user (c)
+ *   3. profiling - dev/prod (c)
  *   4. deployment to heroku
  *   5. add user, change password, change role
  *   6. image upload, user details
