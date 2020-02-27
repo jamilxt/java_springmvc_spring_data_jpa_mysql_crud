@@ -17,7 +17,7 @@ public class AppInitializer implements WebApplicationInitializer {
         ac.register(RootConfig.class);
 
         // activate dev/prod profile
-        ac.getEnvironment().setActiveProfiles("dev");
+        ac.getEnvironment().setActiveProfiles("prod");
 
         ac.refresh();
 
