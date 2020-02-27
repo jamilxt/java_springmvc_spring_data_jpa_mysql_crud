@@ -17,8 +17,8 @@
     <form:form action="${pageContext.request.contextPath }/user/add"
                modelAttribute="user">
         <div class="form-group">
-            <label>Username</label>
-            <form:input path="username" class="form-control" required="required"></form:input>
+            <label>Username</label> <span id="Result" align="center"></span>
+            <form:input path="username" class="form-control" id="username" required="required"></form:input>
         </div>
         <div class="form-group">
             <label>Password</label>
@@ -63,7 +63,7 @@
         </div>
 
         <input type="submit" name="submit" value="Add"
-               class="btn btn-primary btn-lg btn-block">
+               class="btn btn-primary btn-lg btn-block" id="btnSubmit" disabled="true">
     </form:form>
 
 </div>
@@ -82,6 +82,36 @@
 
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#username').keyup(function () {
+            $.get("/user/search", {
+                username: $('#username').val()
+            }, function (response) {
+                $('#Result').fadeOut();
+                setTimeout("finishAjax('Result', '" + escape(response) + "')", 400);
+            });
+            return false;
+        });
+    });
+
+    function finishAjax(id, response) {
+        $('#Result').hide();
+        if (response === "Available") {
+            $('#btnSubmit').prop('disabled', false);
+            response = "<span class='badge badge-success'>" + response + "</div>";
+        } else {
+            $('#btnSubmit').prop('disabled', true);
+            response = "<span class='badge badge-danger'>" + response + "</div>";
+        }
+        $('#' + id).html(unescape(response));
+        $('#' + id).fadeIn();
+
+    }
 </script>
 
 

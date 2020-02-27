@@ -75,4 +75,11 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(userId); // will be converted to soft delete
     }
 
+    public String searchUser(String username) {
+        if (userRepository.findByUsername(username).isEmpty()) {
+            return "Available";
+        } else {
+            return "Not available";
+        }
+    }
 }

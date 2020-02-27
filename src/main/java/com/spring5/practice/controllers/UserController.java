@@ -6,12 +6,11 @@ import com.spring5.practice.service.AuthorityService;
 import com.spring5.practice.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -68,6 +67,13 @@ public class UserController {
         model.addAttribute("message", "User deleted successfully");
         return "redirect:/user/show-all";
 
+    }
+
+    @GetMapping(value = "user/search")
+    public @ResponseBody
+    ResponseEntity<?> searchUserByUsername(@RequestParam(name = "username") String username) {
+        var data = userService.searchUser(username);
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
 }
