@@ -17,7 +17,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *   6. image upload, user details
  *   7. smtp setup
  *   8. change password, forgot password
- *   9. api for searching
+ *   9. api for searching (c)
+ *  10. Jquery Date Plugin in form
+ *  11. Soft Delete for user
  *
  *
  *

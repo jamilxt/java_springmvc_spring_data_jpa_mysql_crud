@@ -22,7 +22,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="${pageContext.request.contextPath }">Batch-1</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath }/">Batch-1</a>
 
         <sec:authorize access="isAuthenticated()">
 

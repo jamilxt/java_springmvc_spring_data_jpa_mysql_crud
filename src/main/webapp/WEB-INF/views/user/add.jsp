@@ -59,7 +59,9 @@
 
         <div class="form-group">
             <label>Date of Birth</label>
-            <input class="form-control" type="date" required="required" name="dob_f"/>
+                <%--            html default date type input--%>
+                <%--            <input class="form-control" type="date" required="required" name="dob_f"/>--%>
+            <input class="form-control" type="text" id="datepicker" required="required" name="dob_f"/>
         </div>
 
         <input type="submit" name="submit" value="Add"
@@ -112,6 +114,16 @@
         $('#' + id).fadeIn();
 
     }
+</script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+    });
 </script>
 
 

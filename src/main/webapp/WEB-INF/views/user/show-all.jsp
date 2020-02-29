@@ -39,9 +39,10 @@
                         <%--                    <a href="edit?userId=${ user.id }"--%>
                         <%--                       class="btn btn-warning">Change Role</a><br><br>--%>
 
-                    <a href="delete?userId=${ user.id }"
-                       class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
-                </th>
+
+<%--                    <a href="delete?userId=${ user.id }"--%>
+<%--                       class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>--%>
+<%--                </th>--%>
             </tr>
         </c:forEach>
         </tbody>
